@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="product">Select Product:</label>
+    <select id="product" onchange="updatePrice()">
+        <option value="1">Product A</option>
+        <option value="2">Product B</option>
+        <!-- Add more options as needed -->
+    </select>
+    
+    <label for="price">Product Price:</label>
+    <input type="text" id="price" readonly>
+
+    
+    <script>
+        function updatePrice() {
+    const productSelect = document.getElementById('product');
+    const priceInput = document.getElementById('price');
+
+    // Replace this with your logic to fetch price from backend
+    const selectedProductId = productSelect.value;
+    const selectedProductPrice = getProductPrice(selectedProductId);
+
+    priceInput.value = selectedProductPrice;
+}
+
+// Replace this with actual logic to fetch price from backend (e.g., AJAX request)
+function getProductPrice(productId) {
+    // You can fetch the price using AJAX or from a predefined data structure
+    // For now, I'll use a simple example data structure
+    const products = {
+        1: 10.99,
+        2: 15.49,
+        // Add more product prices as needed
+    };
+
+    return products[productId] || 0; // Default to 0 if product price is not found
+}
+
+    </script>
+       
+         
+        
+        
+</body>
+
+</html>
